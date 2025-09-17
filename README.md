@@ -57,7 +57,7 @@ Here's an overview of the key files and directories:
 
 - **Global Styles**: Edit `src/app/globals.css` for sitewide styles.
 - **Tailwind CSS**: The project uses Tailwind CSS for utility-first styling. You can customize the theme by creating a `tailwind.config.ts` file.
-- **UI Components**: The project uses `shadcn/ui`. You can add new components or modify existing ones in the `src/components` directory.
+- **UI Components**: You can add new components or modify existing ones in the `src/components` directory.
 
 ### Pages and Routes
 
