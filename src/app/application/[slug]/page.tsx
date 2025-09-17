@@ -260,7 +260,7 @@ const ApplicationDetailPage = () => {
     );
 
   return (
-    <main className="min-h-screen p-8 bg-gray-950 text-gray-100">
+    <main className="min-h-screen p-4 md:p-8 bg-gray-950 text-gray-100">
       <div className="max-w-4xl mx-auto">
         <button
           onClick={() => router.back()}
@@ -268,8 +268,11 @@ const ApplicationDetailPage = () => {
         >
           &larr; Back to Applications
         </button>
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-6 mb-8">
-          <h1 className="text-3xl font-bold mb-4">Application Details</h1>
+
+        <div className="bg-gray-900 rounded-lg border border-gray-800 p-4 md:p-6 mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold mb-4">
+            Application Details
+          </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <DetailItem label="Applicant Name" value={application.username} />
             <DetailItem
@@ -291,7 +294,7 @@ const ApplicationDetailPage = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Evaluation</h2>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4">Evaluation</h2>
           <div className="space-y-6">
             {qaPairs.map((qa) => {
               const currentEval = evaluations[qa.id];
@@ -305,7 +308,7 @@ const ApplicationDetailPage = () => {
                     {qa.answer}
                   </p>
 
-                  <div className="mt-4 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+                  <div className="mt-4 pt-4 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-sm font-medium text-gray-400 mr-2">
                         Rating:
@@ -318,7 +321,7 @@ const ApplicationDetailPage = () => {
                             onClick={() =>
                               handleRatingChange(qa.id, ratingValue)
                             }
-                            className={`w-8 h-8 rounded-full text-sm font-bold transition-colors ${
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full text-sm font-bold transition-colors ${
                               currentEval?.rating === ratingValue
                                 ? "bg-indigo-500 text-white"
                                 : "bg-gray-700 hover:bg-gray-600"
@@ -329,7 +332,7 @@ const ApplicationDetailPage = () => {
                         );
                       })}
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 self-start sm:self-center">
                       <span className="text-sm font-medium text-gray-400">
                         Looks AI?
                       </span>
@@ -354,7 +357,7 @@ const ApplicationDetailPage = () => {
             <div className="mt-8 p-4 bg-gray-900 rounded-lg border border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
               <div>
                 <h3 className="text-lg font-semibold">Final Score</h3>
-                <p className="text-3xl font-bold text-indigo-400">
+                <p className="text-2xl sm:text-3xl font-bold text-indigo-400">
                   {finalScore !== null
                     ? `${finalScore.toFixed(2)} / 100`
                     : "Pending..."}
@@ -363,7 +366,7 @@ const ApplicationDetailPage = () => {
               <button
                 onClick={handleSubmitEvaluation}
                 disabled={isSubmitting}
-                className="px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-500 disabled:bg-gray-600 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-500 disabled:bg-gray-600 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Submitting..." : "Submit Final Evaluation"}
               </button>

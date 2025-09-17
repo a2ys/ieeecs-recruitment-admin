@@ -86,7 +86,6 @@ const UserDetailPage = () => {
       setError("User ID is missing.");
       return;
     }
-
     const getData = async () => {
       try {
         setIsLoading(true);
@@ -98,12 +97,10 @@ const UserDetailPage = () => {
         setApplications(appsData);
       } catch (err) {
         setError("Failed to fetch user data.");
-        console.error(err);
       } finally {
         setIsLoading(false);
       }
     };
-
     getData();
   }, [slug]);
 
@@ -120,22 +117,16 @@ const UserDetailPage = () => {
     </div>
   );
 
-  if (isLoading) {
+  if (isLoading)
     return (
       <p className="text-center mt-10 text-gray-400">Loading user details...</p>
     );
-  }
-
-  if (error) {
-    return <p className="text-center mt-10 text-red-500">{error}</p>;
-  }
-
-  if (!user) {
+  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+  if (!user)
     return <p className="text-center mt-10 text-gray-500">User not found.</p>;
-  }
 
   return (
-    <main className="min-h-screen p-8 bg-gray-950 text-gray-100">
+    <main className="min-h-screen p-4 md:p-8 bg-gray-950 text-gray-100">
       <div className="max-w-7xl mx-auto">
         <button
           onClick={() => router.back()}
@@ -144,8 +135,11 @@ const UserDetailPage = () => {
           &larr; Back to All Users
         </button>
 
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-6 mb-8">
-          <h1 className="text-3xl font-bold mb-4">{user.full_name}</h1>
+        <div className="bg-gray-900 rounded-lg border border-gray-800 p-4 md:p-6 mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold mb-4">
+            {user.full_name}
+          </h1>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <DetailItem label="Reg No" value={user.reg_num} />
             <DetailItem label="Email" value={user.email} />
@@ -171,7 +165,10 @@ const UserDetailPage = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Applications</h2>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4">
+            Applications
+          </h2>
+
           <div className="overflow-x-auto rounded-lg border border-gray-800 shadow-md">
             <table className="min-w-full divide-y divide-gray-800">
               <thead className="bg-gray-900">
