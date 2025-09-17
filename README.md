@@ -73,6 +73,10 @@ The application is tightly integrated with Supabase for database operations and 
 
 ## Changing the Backend
 
+Current implementation uses Supabase as the backend. This is the schema used in Supabase (taken from Go backend):
+
+![Database Schema](./public/schema.png)
+
 If you want to replace Supabase with a custom backend (e.g., your own REST or GraphQL API), you'll need to follow these steps:
 
 1. **Remove Supabase Packages**:
